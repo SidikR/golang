@@ -10,7 +10,7 @@
       "GOVERSION": "1.21.1"  
     },
     "routes": [
-      { "src": "/.*", "dest": "main.go" }
+      { "src": "./*", "dest": "main.go" }
     ]
 }
   
