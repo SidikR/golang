@@ -22,10 +22,9 @@ type newStudent struct {
 	Student_phone_no string `json:"student_phone_no" binding:"required"`
 }
 
-func main() {
-	// r := setRouter()
-	// r.Run(":8080")
-	fmt.Println("Hello World")
+func Handler(c *gin.Context) {
+	r := setRouter()
+	r.Run(":8080")
 }
 
 func setRouter() *gin.Engine {
