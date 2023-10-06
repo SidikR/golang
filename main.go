@@ -1,9 +1,6 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
@@ -17,21 +14,13 @@ import (
 // }
 
 func main() {
-	r := setRouter()
-	r.Run(":8080")
-}
-
-func setRouter() *gin.Engine {
 	r := gin.Default()
-	r.GET("/", Handler)
-	return r
-}
 
-func Handler(c *gin.Context) {
-	fmt.Println("Hello World!")
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Hello, World!",
+	r.GET("/", func(c *gin.Context) {
+		c.String(200, "Hello, Vercel Gin!")
 	})
+
+	r.Run()
 }
 
 // func Handler(c *gin.Context) {
