@@ -15,9 +15,18 @@ import (
 // 	Student_phone_no string `json:"student_phone_no" binding:"required"`
 // }
 
+func main() {
+	r := gin.Default()
+
+	// Tambahkan r.GET, r.POST, dan r lainnya di sini sesuai dengan rute Anda
+
+	// Contoh rute sederhana
+	r.GET("/", Handler)
+
+	r.Run(":8080") // Mulai server pada port 8080
+}
+
 func Handler(c *gin.Context) {
-	// r := setRouter()
-	// r.Run(":8080")
 	fmt.Println("Hello World!")
 }
 
