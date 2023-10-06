@@ -1,9 +1,8 @@
 package main
 
 import (
-	"net/http"
+	"fmt"
 
-	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
@@ -15,21 +14,21 @@ import (
 // 	Student_phone_no string `json:"student_phone_no" binding:"required"`
 // }
 
-// func Handler(c *gin.Context) {
-// 	// r := setRouter()
-// 	// r.Run(":8080")
-// 	fmt.Println("Hello World!")
-// }
-
-func Handler(c *gin.Context) {
-	// Buat pesan JSON yang akan dikirim sebagai respons
-	jsonResponse := gin.H{
-		"message": "Hello, World!",
-	}
-
-	// Mengirim respons JSON
-	c.JSON(http.StatusOK, jsonResponse)
+func main() {
+	// r := setRouter()
+	// r.Run(":8080")
+	fmt.Println("Hello World!")
 }
+
+// func Handler(c *gin.Context) {
+// 	// Buat pesan JSON yang akan dikirim sebagai respons
+// 	jsonResponse := gin.H{
+// 		"message": "Hello, World!",
+// 	}
+
+// 	// Mengirim respons JSON
+// 	c.JSON(http.StatusOK, jsonResponse)
+// }
 
 // func setRouter() *gin.Engine {
 // 	// Koneksi Database
