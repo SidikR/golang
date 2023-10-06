@@ -1,6 +1,8 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
@@ -20,7 +22,8 @@ func main() {
 		c.String(200, "Hello, Vercel Gin!")
 	})
 
-	r.Run()
+	// Instead of r.Run(), use http.ListenAndServe
+	http.ListenAndServe(":8080", r)
 }
 
 // func Handler(c *gin.Context) {
