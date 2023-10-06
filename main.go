@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
@@ -16,18 +17,21 @@ import (
 // }
 
 func main() {
+	r := setRouter()
+	r.Run(":8080")
+}
+
+func setRouter() *gin.Engine {
 	r := gin.Default()
-
-	// Tambahkan r.GET, r.POST, dan r lainnya di sini sesuai dengan rute Anda
-
-	// Contoh rute sederhana
 	r.GET("/", Handler)
-
-	r.Run(":8080") // Mulai server pada port 8080
+	return r
 }
 
 func Handler(c *gin.Context) {
 	fmt.Println("Hello World!")
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Hello, World!",
+	})
 }
 
 // func Handler(c *gin.Context) {
