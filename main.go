@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
@@ -14,7 +15,7 @@ import (
 // 	Student_phone_no string `json:"student_phone_no" binding:"required"`
 // }
 
-func main() {
+func Handler(c *gin.Context) {
 	// r := setRouter()
 	// r.Run(":8080")
 	fmt.Println("Hello World!")
