@@ -1,11 +1,5 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "main.go",
-        "use": "@vercel/go"
-      }
-    ],
     "env": {
       "GOVERSION": "1.21.1"  
     },
