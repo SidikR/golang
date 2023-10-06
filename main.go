@@ -22,6 +22,11 @@ type newStudent struct {
 	Student_phone_no string `json:"student_phone_no" binding:"required"`
 }
 
+func main() {
+	r := setRouter()
+	r.Run(":8080")
+}
+
 func setRouter() *gin.Engine {
 	// Koneksi Database
 	errEnv := godotenv.Load(".env")
@@ -92,8 +97,6 @@ func getHandler(c *gin.Context, db *gorm.DB) {
 
 	var newStudent newStudent
 	studentId := c.Param("student_id")
-	// id := strconv.ParseUint(studentId, 10, 64)
-	// data:=newStudent(Student_id: id)
 	if db.Find(&newStudent, "student_id=?", studentId).RecordNotFound() {
 		c.JSON(http.StatusNotFound, gin.H{
 			"message": "data not found",
@@ -133,9 +136,4 @@ func seederUser(db *gorm.DB) {
 	}
 
 	db.Create(&data)
-}
-
-func main() {
-	r := setRouter()
-	r.Run(":8080")
 }
