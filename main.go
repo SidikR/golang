@@ -1,30 +1,41 @@
-package main
+package handler
 
 import (
+	"fmt"
 	"net/http"
-
-	"github.com/gin-gonic/gin"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
-// type newStudent struct {
-// 	Student_id       uint64 `json:"student_id" binding:"required"`
-// 	Student_name     string `json:"student_name" binding:"required"`
-// 	Student_age      uint64 `json:"student_age" binding:"required"`
-// 	Student_address  string `json:"student_address" binding:"required"`
-// 	Student_phone_no string `json:"student_phone_no" binding:"required"`
-// }
-
-func main() {
-	r := gin.Default()
-
-	r.GET("/", func(c *gin.Context) {
-		c.String(200, "Hello, Vercel Gin!")
-	})
-
-	// Instead of r.Run(), use http.ListenAndServe
-	http.ListenAndServe(":8080", r)
+func Handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "<h1>Hello from Go!</h1>")
 }
+
+// / package main
+
+// import (
+// 	"net/http"
+
+// 	"github.com/gin-gonic/gin"
+// 	_ "github.com/jinzhu/gorm/dialects/postgres"
+// )
+
+// // type newStudent struct {
+// // 	Student_id       uint64 `json:"student_id" binding:"required"`
+// // 	Student_name     string `json:"student_name" binding:"required"`
+// // 	Student_age      uint64 `json:"student_age" binding:"required"`
+// // 	Student_address  string `json:"student_address" binding:"required"`
+// // 	Student_phone_no string `json:"student_phone_no" binding:"required"`
+// // }
+
+// func main() {
+// 	r := gin.Default()
+
+// 	r.GET("/", func(c *gin.Context) {
+// 		c.String(200, "Hello, Vercel Gin!")
+// 	})
+
+// 	// Instead of r.Run(), use http.ListenAndServe
+// 	http.ListenAndServe(":8080", r)
+// }
 
 // func Handler(c *gin.Context) {
 // 	// Buat pesan JSON yang akan dikirim sebagai respons
