@@ -23,8 +23,9 @@ type newStudent struct {
 }
 
 func main() {
-	r := setRouter()
-	r.Run(":8080")
+	// r := setRouter()
+	// r.Run(":8080")
+	fmt.Println("Hello World")
 }
 
 func setRouter() *gin.Engine {
